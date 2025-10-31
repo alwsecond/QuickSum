@@ -1,0 +1,8 @@
+.glass {
+    display:inline-block;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: inset 0 0 6px rgba(255,255,255,.07);
+    background: linear-gradient(to right bottom, rgba(255,255,255,.03), rgba(255,255,255,.07));
+    transition: .2s;
+}

@@ -3,13 +3,9 @@
 import { cn } from "@/app/lib/utils"
 import { useState, useRef, useEffect } from "react"
 
-interface Props {
-    className?: string
-}
-
 type NumberType = 'one-digit' | 'two-digit' | 'three-digit'
 
-export default function MathGameWindow({className=""}:Props) {
+export default function MathGameWindow() {
     const [currentNumber, setCurrentNumber] = useState<number>(0)
     const [status, setStatus] = useState<string>("Нажмите Start чтобы начать")
     const [gameStage, setGameStage] = useState<'idle' | 'showing' | 'result'>('idle')
@@ -19,7 +15,7 @@ export default function MathGameWindow({className=""}:Props) {
     const [timeLeft, setTimeLeft] = useState<number>(0)
     const [timerActive, setTimerActive] = useState<boolean>(false)
 
-    // Таймер
+    // Timer
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null
         
@@ -87,7 +83,6 @@ export default function MathGameWindow({className=""}:Props) {
                 currentIndex++
                 setTimeout(showNextNumber, 500)
             } else {
-                // Все числа показаны, запускаем таймер
                 setCurrentNumber(0)
                 const timeLimit = getTimeLimit()
                 setTimeLeft(timeLimit)
